@@ -60,7 +60,7 @@ def clean_text(s):
 
     return s.strip()
 
-def draw_process_flow(process_data):
+def draw_process_flow(process_data,graph_engine):
 
     data = pm4py.format_dataframe(process_data, case_id='Number', activity_key='workNote', timestamp_key=\
         'Timestamp')
@@ -89,13 +89,18 @@ def draw_process_flow(process_data):
 
     i = 0
     for nodes in node_dict.keys():
-        graph.node(nodes, shape = 'oval')#, pos = ("0,"+str(-1*i)))
+        if nodes in starts:
+            graph.node(nodes, shape = 'oval', color = 'green')
+        elif nodes in ends:
+            graph.node(nodes, shape = 'oval', color = 'red')
+        else:    
+            graph.node(nodes, shape = 'box')#, pos = ("0,"+str(-1*i)))
         i+=3
 
     for edge, freq in dfg.items():
         graph.edge(tail_name=edge[0], head_name= edge[1])
 
-    graph.render('process_graph', format='png', view=True, engine='fdp')
+    graph.render('process_graph', format='png', view=True, engine=graph_engine)
 
     return starts,ends
 
