@@ -1,15 +1,15 @@
 digraph {
-	"assignment to agent d in server team" [shape=oval]
-	"automatic assignment to agent c in service desk team." [shape=oval]
-	"escalate to server team" [shape=oval]
-	"take action hard rebooted the system" [shape=oval]
-	"user reported backup is failing." [shape=oval]
-	"take action ran the backup." [shape=oval]
-	"escalate to storage team" [shape=oval]
-	"remarks its an issue from the backup end" [shape=oval]
-	"request info from user  backup name backup type last successful run" [shape=oval]
-	"action outcome issue resolved" [shape=oval]
-	"action outcome backup failed again." [shape=oval]
+	"automatic assignment to agent c in service desk team." [color=green shape=oval]
+	"assignment to agent d in server team" [color=green shape=oval]
+	"user reported backup is failing." [shape=box]
+	"escalate to storage team" [shape=box]
+	"remarks its an issue from the backup end" [shape=box]
+	"escalate to server team" [shape=box]
+	"take action ran the backup." [shape=box]
+	"request info from user  backup name backup type last successful run" [shape=box]
+	"take action hard rebooted the system" [shape=box]
+	"action outcome backup failed again." [color=red shape=oval]
+	"action outcome issue resolved" [color=red shape=oval]
 	"action outcome backup failed again." -> "escalate to storage team"
 	"action outcome backup failed again." -> "take action hard rebooted the system"
 	"action outcome backup failed again." -> "take action ran the backup."
