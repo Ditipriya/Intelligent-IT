@@ -1,0 +1,31 @@
+digraph {
+	"assignment to agent d in server team" [shape=oval]
+	"automatic assignment to agent c in service desk team." [shape=oval]
+	"escalate to server team" [shape=oval]
+	"take action hard rebooted the system" [shape=oval]
+	"user reported backup is failing." [shape=oval]
+	"take action ran the backup." [shape=oval]
+	"escalate to storage team" [shape=oval]
+	"remarks its an issue from the backup end" [shape=oval]
+	"request info from user  backup name backup type last successful run" [shape=oval]
+	"action outcome issue resolved" [shape=oval]
+	"action outcome backup failed again." [shape=oval]
+	"action outcome backup failed again." -> "escalate to storage team"
+	"action outcome backup failed again." -> "take action hard rebooted the system"
+	"action outcome backup failed again." -> "take action ran the backup."
+	"assignment to agent d in server team" -> "assignment to agent d in server team"
+	"assignment to agent d in server team" -> "remarks its an issue from the backup end"
+	"assignment to agent d in server team" -> "request info from user  backup name backup type last successful run"
+	"assignment to agent d in server team" -> "user reported backup is failing."
+	"automatic assignment to agent c in service desk team." -> "user reported backup is failing."
+	"escalate to server team" -> "assignment to agent d in server team"
+	"escalate to storage team" -> "assignment to agent d in server team"
+	"remarks its an issue from the backup end" -> "escalate to storage team"
+	"request info from user  backup name backup type last successful run" -> "user reported backup is failing."
+	"take action hard rebooted the system" -> "take action ran the backup."
+	"take action ran the backup." -> "action outcome backup failed again."
+	"take action ran the backup." -> "action outcome issue resolved"
+	"take action ran the backup." -> "escalate to server team"
+	"user reported backup is failing." -> "action outcome backup failed again."
+	"user reported backup is failing." -> "take action ran the backup."
+}
